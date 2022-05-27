@@ -9,7 +9,4 @@ package com.example.backend.dm;
 
 public interface DataManager {
 
-    
-
-
 }

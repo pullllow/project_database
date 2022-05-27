@@ -40,7 +40,7 @@ public class TransactionManagerImpl implements TransactionManager {
 
     /**
      * 校验XID文件是否合法
-     * 读取XID_FILE_HEADER中的xidcounter， 计算文件理论长度，对比实际长度
+     * 读取XID_FILE_HEADER中的xid_counter，计算文件理论长度，对比实际长度
      *
      * @return void
      **/

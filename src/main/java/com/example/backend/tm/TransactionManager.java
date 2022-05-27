@@ -15,6 +15,12 @@ import java.nio.channels.FileChannel;
  * @author Chang Qi
  * @date 2022/5/25 19:15
  * @description
+ *
+ * 事务文件格式：
+ * [XID_Counter][T1][T2]...[Tn]
+ * XID_Counter 事务计数器 8字节
+ * Ti  事务状态 1字节
+ *
  * @Version V1.0
  */
 

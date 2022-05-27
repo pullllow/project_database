@@ -1,4 +1,4 @@
-package com.example.backend.dm;
+package com.example.backend.dm.page;
 
 import com.example.backend.dm.page.Page;
 import com.example.backend.dm.page.PageX;

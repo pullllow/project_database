@@ -27,6 +27,15 @@ import java.nio.channels.FileChannel;
  *  [Size] [CheckSum] [Data]
  *  Size 4字节 int 标识Data长度
  *  CheckSum 4字节 int
+ *
+ *  日志类型 InsertLog  UpdateLog
+ *
+ *  InsertLog 格式：
+ *  [LogType][XID][PageNo][Offset][Raw]
+ *  UpdateLog 格式：
+ *  [LogType][XID][UID][OldRaw][NewRaw]
+ *
+ *
  * @Version V1.0
  */
 

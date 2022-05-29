@@ -33,7 +33,7 @@ public interface PageCache {
     void release(Page page);
 
     void truncateByPageNo(int maxPageNo);
-    int getPageNumber();
+    int getPageNumber();                        //获取缓存的页面数量
     void flushPage(Page page);
 
 

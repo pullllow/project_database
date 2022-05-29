@@ -1,5 +1,6 @@
 package com.example.backend.dm.recover;
 
+import com.example.backend.common.SubArray;
 import com.example.backend.dm.dataitem.DataItem;
 import com.example.backend.dm.logger.Logger;
 import com.example.backend.dm.page.Page;
@@ -29,6 +30,7 @@ public class Recover {
     private static final int REDO = 0;
     private static final int UNDO = 1;
 
+
     static class InsertLogInfo {
         long xid;
         int pageNo;
@@ -43,6 +45,52 @@ public class Recover {
         byte[] oldRaw;
         byte[] newRaw;
     }
+
+    /**
+     * 恢复策略执行函数
+     * @param tm
+     * @param logger
+     * @param pc
+     * @return void
+     *
+     **/
+    public static void recover(TransactionManager tm, Logger logger, PageCache pc) {
+        System.out.println("DM recovering...");
+
+        logger.rewind();
+        int maxPageNo = 0;
+        while(true) {
+            byte[] log = logger.next();
+            if(log==null) break;
+            int pageNo = -1;
+            if(isInsertLog(log)) {
+                InsertLogInfo il = parseInsertLog(log);
+                pageNo = il.pageNo;
+            } else {
+                UpdateLogInfo ul = parseUpdateLog(log);
+                pageNo = ul.pageNo;
+            }
+            if(pageNo > maxPageNo) {
+                maxPageNo = pageNo;
+            }
+        }
+        if(maxPageNo ==0 ){
+            maxPageNo = 1;
+        }
+        pc.truncateByPageNo(maxPageNo);
+        System.out.println("Truncate to" + maxPageNo + "pages.");
+
+        redoTransactions(tm, logger, pc);
+        System.out.println("Redo Transactions Over");
+
+        undoTransactions(tm, logger, pc);
+        System.out.println("Undo Transactions Over");
+
+        System.out.println("Recovery Over.");
+
+    }
+
+
 
     /**
      * 重做所有已完成事务
@@ -173,12 +221,15 @@ public class Recover {
     private static final int UPDATE_UID = LOG_XID + 8;
     private static final int UPDATE_RAW = UPDATE_UID + 8;
 
-    ///////////////////////##################################################
-    public static byte[] updateLog(long xid, Page page, byte[] raw) {
+
+    public static byte[] updateLog(long xid, DataItem di) {
         byte[] logType ={LOG_TYPE_INSERT};
         byte[] xidRaw = Parser.long2Byte(xid);
-
-
+        byte[] uidRaw = Parser.long2Byte(di.getUid());
+        byte[] oldRaw = di.getOldRaw();
+        SubArray raw = di.getRaw();
+        byte[] newRaw = Arrays.copyOfRange(raw.raw, raw.start, raw.end);
+        return Bytes.concat(logType,xidRaw,uidRaw,oldRaw,newRaw);
 
     }
 

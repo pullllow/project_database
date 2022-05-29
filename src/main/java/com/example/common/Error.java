@@ -21,5 +21,7 @@ public class Error {
 
     //dm
     public static final Exception MemTooSmallException = new RuntimeException("Memory too small!");
-    public static final Exception BadLogFileErrorException = new RuntimeException("Bad log file");
+    public static final Exception BadLogFileErrorException = new RuntimeException("Bad log file!");
+    public static final Exception DataTooLargeException = new RuntimeException("Data too lager!");
+    public static final Exception DatabaseBusyException = new RuntimeException("Database busy!");
 }

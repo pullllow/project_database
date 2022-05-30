@@ -26,7 +26,7 @@ public class TransactionManagerImpl implements TransactionManager {
 
     private RandomAccessFile file;
     private FileChannel fc;
-    private long xidCounter;
+    private long xidCounter;   //记录当前事务XID
     private Lock counterLock;
 
 

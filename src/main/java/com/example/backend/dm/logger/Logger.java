@@ -19,7 +19,7 @@ import java.nio.channels.FileChannel;
  *
  *  日志文件标准格式为：
  *  [XCheckSum] [Log1] [Log2] ... [LogN] [BadTail]
- *  XCheckSum 为后续所有日志计算的Checksum，int类型
+ *  XCheckSum 为后续所有日志计算的Checksum，int类型 4字节
  *  Logn 单条日志
  *  BadTail 数据库崩溃时没有来得及完成的日志数据
  *

@@ -32,7 +32,7 @@ public class PageCacheImpl extends AbstractCache<Page> implements PageCache  {
 
     private  AtomicInteger pageNumber; // 记录当前打开的数据库文件页数
 
-    public PageCacheImpl( RandomAccessFile file, FileChannel fc, int maxResource) {
+    public PageCacheImpl(RandomAccessFile file, FileChannel fc, int maxResource) {
 
         super(maxResource);
         if(maxResource<MEM_MIN_LIM) {

@@ -4,6 +4,8 @@ package com.example.backend.dm.pageIndex;
  * @author Chang Qi
  * @date 2022/5/28 11:07
  * @description
+ * 储存页剩余空间结构体
+ *
  * @Version V1.0
  */
 

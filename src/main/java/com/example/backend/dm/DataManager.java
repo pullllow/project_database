@@ -33,6 +33,7 @@ public interface DataManager {
         Logger logger = Logger.create(path);
         DataManagerImpl dm = new DataManagerImpl(tm,pc,logger);
         dm.initPageOne();
+        dm.fillPageIndex();
         return dm;
 
 

@@ -32,7 +32,7 @@ public class DataManagerImpl extends AbstractCache<DataItem> implements DataMana
     private PageIndex pageIndex;
 
 
-    private Page pageOne;
+    private Page pageOne; //数据页面验证页面的记录指针
 
     public Page getPageOne() {
         return pageOne;
@@ -70,6 +70,7 @@ public class DataManagerImpl extends AbstractCache<DataItem> implements DataMana
         }
 
         PageInfo pi = null;
+        // PageIndex 5
         for(int i=0;i<5;i++) {
             pi = pageIndex.select(raw.length);
             if(pi!=null) {
@@ -212,6 +213,10 @@ public class DataManagerImpl extends AbstractCache<DataItem> implements DataMana
             pageIndex.add(page.getPageNo(),PageX.getFreeSpace(page));
             page.release();
         }
+    }
+
+    public void initPageIndex() {
+
     }
 
 

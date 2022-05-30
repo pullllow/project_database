@@ -12,13 +12,15 @@ import java.util.concurrent.locks.ReentrantLock;
  * @author Chang Qi
  * @date 2022/5/28 11:05
  * @description
+ *  方便DataItem 快速定位插入，List+ArrayList实现形式 （相当于HashMap的数组+链表实现）
+ *
  * @Version V1.0
  */
 
 public class PageIndex {
 
     private static final int INTERVALS_NO = 40;
-    private static final int THRESHOLD = Page.PAGE_SIZE / INTERVALS_NO;
+    private static final int THRESHOLD = Page.PAGE_SIZE / INTERVALS_NO; //204
 
 
     private Lock lock;
@@ -50,7 +52,7 @@ public class PageIndex {
             int number = spaceSize/THRESHOLD;
 
             if(number<INTERVALS_NO) number++;
-            while (number<+INTERVALS_NO) {
+            while (number<=INTERVALS_NO) {
                 if(lists[number].size()==0) {
                     number++;
                     continue;

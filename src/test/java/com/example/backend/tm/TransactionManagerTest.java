@@ -49,8 +49,8 @@ public class TransactionManagerTest {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
         String time = sdf.format(date);
         String path = "D:/Develop/Code/IdeaProjects/project_database/test/test_" + time;
-        //System.out.println(path);
-        //TransactionManager tm = TransactionManager.create(path);
+        // System.out.println(path);
+        // TransactionManager tm = TransactionManager.create(path);
         TransactionManager tm = TransactionManager.create(path);
 
     }

@@ -20,6 +20,9 @@ import java.nio.channels.FileChannel;
  * [XID_Counter][T1][T2]...[Tn]
  * XID_Counter 事务计数器 8字节
  * Ti  事务状态 1字节
+ *  0 active
+ *  1 committed
+ *  2 aborted
  *
  * @Version V1.0
  */

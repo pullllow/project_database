@@ -1,5 +1,6 @@
 package com.example.backend.dm;
 
+import com.example.backend.dm.logger.Logger;
 import com.example.backend.dm.page.Page;
 import com.example.backend.dm.pageCache.PageCache;
 import com.example.backend.tm.TransactionManager;
@@ -83,8 +84,16 @@ public class DataManagerTest {
 
 
 
-        dm.insert(0,new byte[60]);
+        byte[] temp = new byte[60];
+        Arrays.fill(temp,(byte)12);
 
+
+        long uid = dm.insert(0, temp);
+        System.out.println(uid);
+
+        new File(path+PageCache.DB_SUFFIX).delete();
+        new File(path+ Logger.LOG_SUFFIX).delete();
+        new File(path+TransactionManager.XID_SUFFIX).delete();
 
     }
 

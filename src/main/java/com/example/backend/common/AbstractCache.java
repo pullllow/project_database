@@ -116,7 +116,7 @@ public abstract class AbstractCache<T> {
         try {
             int ref = references.get(key)-1;
             if(ref==0) {
-                T t = cache.get(ref);
+                T t = cache.get(key);
                 releaseForCache(t);
                 references.remove(key);
                 cache.remove(key);

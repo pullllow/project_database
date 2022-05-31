@@ -71,7 +71,7 @@ public class PageCacheImpl extends AbstractCache<Page> implements PageCache  {
         fileLock.lock();
 
         try {
-            fc.position(0);
+            fc.position(offset);
             fc.read(buf);
         } catch (IOException e) {
             Panic.panic(e);

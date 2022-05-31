@@ -131,6 +131,7 @@ public class DataManagerImpl extends AbstractCache<DataItem> implements DataMana
         logger.log(log);
     }
 
+
     public void releaseDataItem(DataItemImpl dataItem) {
         super.release(dataItem.getUid());
     }
@@ -168,6 +169,7 @@ public class DataManagerImpl extends AbstractCache<DataItem> implements DataMana
      * @return void
      *
      **/
+    @Override
     public void initPageOne() {
         int pageNo = pc.newPage(PageOne.initRaw());
         assert  pageNo ==1;
@@ -200,6 +202,7 @@ public class DataManagerImpl extends AbstractCache<DataItem> implements DataMana
      * @return void
      *
      **/
+    @Override
     public void fillPageIndex() {
         int pageNumber = pc.getPageNumber();
 
@@ -215,9 +218,7 @@ public class DataManagerImpl extends AbstractCache<DataItem> implements DataMana
         }
     }
 
-    public void initPageIndex() {
 
-    }
 
 
 }

@@ -25,13 +25,19 @@ public interface DataManager {
 
     long insert(long xid, byte[] data) throws Exception;
 
+    void initPageOne();
+
+    void fillPageIndex();
+
+
+
     void close();
 
 
     public static DataManager create(String path, long memory, TransactionManager tm) {
         PageCache pc = PageCache.create(path, memory);
         Logger logger = Logger.create(path);
-        DataManagerImpl dm = new DataManagerImpl(tm,pc,logger);
+        DataManager dm = new DataManagerImpl(tm,pc,logger);
         dm.initPageOne();
         dm.fillPageIndex();
         return dm;

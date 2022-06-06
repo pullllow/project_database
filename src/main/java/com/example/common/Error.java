@@ -29,4 +29,7 @@ public class Error {
     public static final Exception NullEntryException = new RuntimeException("Null Entry!");
     public static final Exception ConcurrentUpdateException = new RuntimeException("Concurrent update issue!");
     public static final Exception DeadLockException = new RuntimeException("Deadlock!");
+
+    //parser
+    public static final Exception InvalidCommandException = new RuntimeException("Invalid command");
 }

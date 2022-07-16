@@ -2,10 +2,10 @@ package com.example.backend.tbm.impl;
 
 import com.example.backend.dm.DataManager;
 import com.example.backend.parser.statement.*;
-import com.example.backend.tbm.BeginRes;
+import com.example.backend.tbm.utils.BeginRes;
 import com.example.backend.tbm.booter.Booter;
 import com.example.backend.tbm.TableManager;
-import com.example.backend.tbm.table.Table;
+import com.example.backend.tbm.Table;
 import com.example.backend.utils.Parser;
 import com.example.backend.vm.VersionManager;
 

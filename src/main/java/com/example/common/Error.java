@@ -31,5 +31,13 @@ public class Error {
     public static final Exception DeadLockException = new RuntimeException("Deadlock!");
 
     //parser
-    public static final Exception InvalidCommandException = new RuntimeException("Invalid command");
+    public static final Exception InvalidCommandException = new RuntimeException("Invalid command!");
+
+    //tbm
+    public static final Exception FieldNotFoundException = new RuntimeException("Field not found!");
+    public static final Exception InvalidValuesException = new RuntimeException("Invalid values!");
+    public static final Exception FieldNotIndexedException = new RuntimeException("Filed not indexed!");
+    public static final Exception InvalidLogOpException = new RuntimeException("Invalid logic operation!");
+    public static final Exception InvalidFieldException = new RuntimeException("Invalid field type!");
+
 }

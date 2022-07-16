@@ -23,7 +23,7 @@ public class Tokenizer {
         this.stmt = stmt;
         this.pos = 0;
         this.currentToken = "";
-        this.flushToken = false;
+        this.flushToken = true;
     }
 
     public String peek() throws Exception {
@@ -48,14 +48,15 @@ public class Tokenizer {
     /**
      * pop可以优化
      **/
-    public void pop() {
+    public String pop() throws Exception {
         flushToken = true;
+        return peek();
     }
 
     public byte[] errorStmt() {
         byte[] res = new byte[stmt.length + 3];
         System.arraycopy(stmt, 0, res, 0, pos);
-        System.arraycopy("<<".getBytes(), 0, res, pos, 3);
+        System.arraycopy("<< ".getBytes(), 0, res, pos, 3);
         System.arraycopy(stmt, pos, res, pos + 3, stmt.length - pos);
         return res;
     }

@@ -17,7 +17,7 @@ import java.util.List;
 
 public class Parser {
 
-    public static Object Parse(byte[] statement) throws Exception {
+    public static Object parse(byte[] statement) throws Exception {
         Tokenizer tokenizer = new Tokenizer(statement);
         String token = tokenizer.peek();
         tokenizer.pop();

@@ -78,7 +78,7 @@ public class Recover {
             maxPageNo = 1;
         }
         pc.truncateByPageNo(maxPageNo);
-        System.out.println("Truncate to" + maxPageNo + "pages.");
+        System.out.println("Truncate to " + maxPageNo + " pages.");
 
         redoTransactions(tm, logger, pc);
         System.out.println("Redo Transactions Over");

@@ -40,4 +40,13 @@ public class Error {
     public static final Exception InvalidLogOpException = new RuntimeException("Invalid logic operation!");
     public static final Exception InvalidFieldException = new RuntimeException("Invalid field type!");
 
+    //transport
+    public static final Exception InvalidPkgDataException = new RuntimeException("Invalid package data!");
+
+    //launcher
+    public static final Exception InvalidMemException = new RuntimeException("Invalid memory!");
+
+    // server
+    public static final Exception NestedTransactionException = new RuntimeException("Nested transaction not supported!");
+    public static final Exception NoTransactionException = new RuntimeException("Not in transaction!");
 }
